@@ -7,14 +7,26 @@
 
 
     <title>HUC 12 Lookup Tool</title>
+    <style>
+        div {
+            text-indent: 20px;
+        }
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
 <!--<body onload="loadData()">-->
 <div>
     <p><b>Instructions: </b></p>
-    <p>PPlease use the following drop down list to find the HUC-12 code for each proposed project site.</p>
+    <p>Please use the following drop down list to find the HUC-12 code for each proposed project site.</p>
 
-    <select id="select_state">
+    <div><select id="select_state">
         <option>State</option>
 
     </select>
@@ -25,10 +37,15 @@
         <option>Watershed</option>
     </select>
     <input id="huc" disabled="disabled">
+    </div>
 </div>
 <br>
 <div>
     <p><i>Having trouble finding your watershed? Try our <a href="http://glcommission.maps.arcgis.com/apps/webappviewer/index.html?id=161a9d9ae9824ee6b7e1580248533765" target="_blank">online mapping tool</a>. </i></p>
+</div>
+<div class="footer">
+    <img src="GLC-Logo-20090820-FINAL-WEB-TRANSPARENT-250pxwx90pxh.png">
+    <p>Powered by <a href="http://glc.org">Great Lakes Commission</a></p>
 </div>
 
 </body>
