@@ -21,7 +21,6 @@
     </style>
 </head>
 <body>
-<!--<body onload="loadData()">-->
 <div>
     <p><b>Instructions: </b></p>
     <p>Please use the following drop down list to find the HUC-12 code for each proposed project site.</p>
@@ -50,11 +49,7 @@
 
 </body>
 <script>
-    var items = [];
-    var jsonObj = {};
-    var mytable = {};
-
-    $( document ).ready(function() {
+    $(document).ready(function() {
         var data;
         $.getJSON("HUC12_in_county.json", function (d) {
             data = d;
@@ -68,64 +63,7 @@
             states.forEach(function(s){
                 $("#select_state").append("<option>"+s+"</option>");
             });
-
-//            var states = $(data).filter(function(i, n){
-//                return n.STATE
         });
-//            data.map(function (d) {
-//
-//                if (!hasState(items, d.STATE)){
-//                    items.append({
-//                        s_name: d.STATE,
-//                        counties: [
-//                            {
-//                                c_name: d.NAME_1,
-//                                watersheds: [
-//                                    {
-//                                        w_name: d.NAME,
-//                                        huc: d.HUC12
-//                                    }
-//                                ]
-//                            }
-//                        ]
-//                    })
-//                }
-//                else{
-//
-//                }
-//
-//
-//                $.each(items, function(i){
-//                    if(mytable.s_name == undefined){
-//
-//                    }
-//                });
-//
-//                    if (mytable.s_name == undefined){
-//                        mytable.append(
-//                            {
-//                                s_name: d.STATE,
-//                                counties: [
-//                                    {
-//                                        c_name: d.NAME_1,
-//                                        watersheds: [
-//                                            {
-//                                                w_name: d.NAME,
-//                                                huc: d.HUC12
-//                                            }
-//                                        ]
-//                                    }
-//                                ]
-//                            })
-//                    }
-////                    else{
-////                        s[d.STATE][counties].append({
-////                            c_name: d.NAME_1,
-////
-////                        })
-////                    }
-//                })
-//                $("#select_state").append("<option>"+d.STATE+"</option>");
 
         $("#select_state").change(function(){
             $(".counties").remove();
@@ -190,103 +128,7 @@
             });
 
             $("#huc").val(watersheds[0].HUC12);
-
-//            for(var i = 0; i < watersheds.length; i++){
-//                if(!watershedList.includes(watersheds[i].Name)){
-//                    watershedList.push(watersheds[i].Name);
-//                }
-//            }
-//            watershedList.sort();
-//            watershedList.forEach(function(c){
-//                $("#select_watershed").append("<option class='watersheds'>"+c+"</option>");
-//            });
         });
     });
-
-    //
-
-    function hasState(m_items, sName){
-        var flag = false;
-        m_items.forEach(function(i){
-            if (i.s_name == sName){
-                return true;
-            }
-        });
-        return flag;
-    }
-
-    //    function hasCounty(m_items, sName, cName){
-    //        var flag = false;
-    //        m_items.forEach(function(i){
-    //            if(i.s_name == sName){
-    //                if(i[sName].c)
-    //            }
-    //        })
-    //    }
-
-    //    window.onload = function(){
-    //        $.getJSON("HUC12_in_county.json", function(data){
-    //            data.map(function(d){
-    //                $("#select_state").innerHTML += "<option>d.STATE</option>";
-    //
-    //            });
-    //
-    //            jsonObj = data;
-    //
-    ////            var items = [];
-    ////            $.each( data, function( key, val ) {
-    ////                $.each(val, function(key2, val2){
-    ////                    items.push( "<li id='" + key2 + "'>" + val2 + "</li>" );
-    ////                });
-    ////
-    ////            });
-    ////
-    ////            $( "<ul/>", {
-    ////                "class": "my-new-list",
-    ////                html: items.join( "" )
-    ////            }).appendTo( "body" );
-    //        })
-    //    }
-
-
-    function loadData() {
-        $.getJSON("HUC12_in_county.json", function(data){
-            data.map(function(d){
-                $("#select_state").innerHTML += "<option>d.STATE</option>";
-
-            });
-
-            jsonObj = data;
-
-//            var items = [];
-//            $.each( data, function( key, val ) {
-//                $.each(val, function(key2, val2){
-//                    items.push( "<li id='" + key2 + "'>" + val2 + "</li>" );
-//                });
-//
-//            });
-//
-//            $( "<ul/>", {
-//                "class": "my-new-list",
-//                html: items.join( "" )
-//            }).appendTo( "body" );
-        })
-    }
-    var test;
-    //    document.onload(function (){
-    //        $.getJSON("HUC12_in_county.json", function(data){
-    //            var items = [];
-    //            $.each( data, function( key, val ) {
-    //                items.push( "<li id='" + key + "'>" + val + "</li>" );
-    //            });
-    //
-    //            $( "<ul/>", {
-    //                "class": "my-new-list",
-    //                html: items.join( "" )
-    //            }).appendTo( "body" );
-    //        })
-    //
-    //    })
-
 </script>
 </html>
